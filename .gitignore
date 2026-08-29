@@ -1,0 +1,10 @@
+.env
+.proofguard-worker-state.json
+node_modules/
+contracts/out/
+contracts/cache/
+cache/
+deployments/*.json
+issues.md
+research.txt
+pitch_notes.md
