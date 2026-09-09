@@ -1,25 +1,51 @@
-# Deployment Scripts
+# Project Runners
 
-To find the testnet deployment sequence, environment validation, library linking, and public deployment metadata output, visit [deploy.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/deploy.mjs).
+This directory contains local operators for compilation, deployment, source actions, destination actions, and adversarial scenarios. Private keys are loaded into ethers from `.env` process memory and are never passed to child-process command lines.
 
 To find the portable Foundry build wrapper, visit [build.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/build.mjs).
 
-To find the public transaction runner for the deployed Sepolia source contract, visit [source-flow.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/source-flow.mjs).
+To find the six-contract deployment sequence, decoder linking, policy compilation, one-time guard bindings, registry activation, vault funding, and public browser configuration, visit [deploy.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/deploy.mjs).
 
-Run the deployment only after the private deployment keys, public addresses, and RPC endpoints are configured in `.env`:
+To find standalone deterministic policy generation, visit [compile-policy.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/compile-policy.mjs).
+
+To find wallet-authorized Sepolia position, repayment, and reversal actions, visit [source-flow.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/source-flow.mjs).
+
+To find FullFile inspection, eligibility checks, vault funding, and guarded loan release, visit [app-flow.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/app-flow.mjs).
+
+To find live fake-source, replay, wrong-chain, and stale-coverage probes, visit [adversarial-flow.mjs](file:///C:/Hackathons/Proof%20Firewall/scripts/adversarial-flow.mjs).
+
+## Deployment
 
 ```powershell
-node --env-file=.env scripts/deploy.mjs
+pnpm deploy:testnet
 ```
 
-The script deploys the Sepolia source contract first, then the Creditcoin decoder library, then the linked ProofGuard contract. It writes only addresses, transaction hashes, and network metadata to `deployments/cc3-testnet.json`.
+The deployment writes private-free metadata to `deployments/`, a policy manifest to `deployments/loan-policy.json`, and browser-safe runtime configuration to `static/deployment.json`.
 
-Private keys are supplied to ethers in process memory rather than passed to a child-process command line, preventing them from appearing in process arguments or Foundry command error output.
-
-The source runner emits only public transaction metadata. Examples:
+## Source Actions
 
 ```powershell
 pnpm source-flow -- open --position-id 0xPOSITION_ID --principal 1000000000000000000 --terms-hash 0xTERMS_HASH
 pnpm source-flow -- repay --position-id 0xPOSITION_ID --repayment-id 0xREPAYMENT_ID --amount 1000000000000000000
 pnpm source-flow -- reverse --position-id 0xPOSITION_ID --repayment-id 0xREPAYMENT_ID --reason-hash 0xREASON_HASH
 ```
+
+## Destination Actions
+
+```powershell
+pnpm app-flow -- status --position-id 0xPOSITION_ID
+pnpm app-flow -- evaluate --position-id 0xPOSITION_ID
+pnpm app-flow -- authorize --position-id 0xPOSITION_ID
+pnpm app-flow -- fund --amount 1000000000000000000
+```
+
+## Adversarial Checks
+
+```powershell
+pnpm adversarial-flow -- fake-source
+pnpm adversarial-flow -- replay 0xPOSITION_ID
+pnpm adversarial-flow -- wrong-chain 0xPOSITION_ID
+pnpm adversarial-flow -- stale-coverage 0xPOSITION_ID
+```
+
+The stale-coverage scenario intentionally changes the position's live coverage status. Run it only after the successful loan demonstration.

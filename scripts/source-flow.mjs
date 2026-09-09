@@ -58,11 +58,14 @@ async function main() {
   if (!isAddress(sourceAddress)) throw new Error("SOURCE_POSITION_CONTRACT_ADDRESS must be an EVM address.");
 
   const provider = new JsonRpcProvider(required("SOURCE_CHAIN_RPC_URL"));
-  const signer = new Wallet(required("SOURCE_DEPLOYER_PRIVATE_KEY"), provider);
-  const ownerAddress = getAddress(required("SOURCE_OWNER_ADDRESS"));
-  if (getAddress(await signer.getAddress()) !== ownerAddress) {
-    throw new Error("SOURCE_DEPLOYER_PRIVATE_KEY must match SOURCE_OWNER_ADDRESS for this runner.");
-  }
+  const signerKey = command === "reverse"
+    ? process.env.SOURCE_OWNER_PRIVATE_KEY ?? required("SOURCE_DEPLOYER_PRIVATE_KEY")
+    : process.env.SOURCE_BORROWER_PRIVATE_KEY ?? required("SOURCE_DEPLOYER_PRIVATE_KEY");
+  const signer = new Wallet(signerKey, provider);
+  if (
+    command === "reverse"
+      && getAddress(await signer.getAddress()) !== getAddress(required("SOURCE_OWNER_ADDRESS"))
+  ) throw new Error("The reversal signer must match SOURCE_OWNER_ADDRESS.");
 
   const contract = new Contract(sourceAddress, sourceAbi, signer);
   const positionId = requiredBytes32("position-id", option(options, "position-id"));

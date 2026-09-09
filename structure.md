@@ -2,22 +2,45 @@
 
 ```text
 .
-|-- .agents/                 Confirmed product and security constraints
+|-- .agents/                 Confirmed architecture and security constraints
 |-- contracts/
-|   `-- src/                 Sepolia and Creditcoin Solidity contracts
-|-- scripts/                 Deployment runner
-|-- deployments/             Local public deployment metadata
+|   `-- src/                 Source, guard, registry, history, vault, and verifier contracts
+|-- deployments/             Generated private-free deployment and policy metadata
+|-- policy/                  Deterministic fixed-loan policy compiler and schema
+|-- scripts/                 Build, deployment, application, and attack runners
+|-- src/
+|   |-- lib/                 Public blockchain and browser-wallet client
+|   `-- routes/              SvelteKit security console
+|-- static/                  Public runtime configuration and attack results
 |-- worker/
-|   `-- src/                 Attestcoin proof ingestion worker
-|-- details.md               Product definition
-|-- research.txt             Attestcoin research and evidence
-|-- foundry.toml             Solidity build settings
-|-- package.json             Node.js scripts and pinned dependencies
-`-- .env.example             Required runtime configuration schema
+|   `-- src/                 Attestcoin ingestion and source monitor
+|-- details.md               Product definition and FullFile integration
+|-- foundry.toml             Solidity compiler settings
+|-- package.json             Pinned application dependencies and commands
+|-- pnpm-workspace.yaml      Dependency build allowlist and security override
+`-- .env.example             Runtime configuration schema
 ```
 
 To find implementation constraints, visit [.agents/README.md](file:///C:/Hackathons/Proof%20Firewall/.agents/README.md).
 
-To find Solidity contract responsibilities, visit [contracts/README.md](file:///C:/Hackathons/Proof%20Firewall/contracts/README.md).
+To find all contract responsibilities, visit [contracts/README.md](file:///C:/Hackathons/Proof%20Firewall/contracts/README.md).
+
+To find individual Solidity modules, visit [contracts/src/README.md](file:///C:/Hackathons/Proof%20Firewall/contracts/src/README.md).
+
+To find generated deployment metadata decisions, visit [deployments/README.md](file:///C:/Hackathons/Proof%20Firewall/deployments/README.md).
+
+To find deterministic policy logic, visit [policy/README.md](file:///C:/Hackathons/Proof%20Firewall/policy/README.md).
+
+To find build, deployment, live-flow, and attack commands, visit [scripts/README.md](file:///C:/Hackathons/Proof%20Firewall/scripts/README.md).
+
+To find dashboard architecture, visit [src/README.md](file:///C:/Hackathons/Proof%20Firewall/src/README.md).
+
+To find the public contract client, visit [src/lib/README.md](file:///C:/Hackathons/Proof%20Firewall/src/lib/README.md).
+
+To find the security console route, visit [src/routes/README.md](file:///C:/Hackathons/Proof%20Firewall/src/routes/README.md).
+
+To find browser-safe runtime files, visit [static/README.md](file:///C:/Hackathons/Proof%20Firewall/static/README.md).
 
 To find worker responsibilities, visit [worker/README.md](file:///C:/Hackathons/Proof%20Firewall/worker/README.md).
+
+To find the worker source entry point, visit [worker/src/README.md](file:///C:/Hackathons/Proof%20Firewall/worker/src/README.md).

@@ -5,6 +5,13 @@ contracts/out/
 contracts/cache/
 cache/
 deployments/*.json
+static/deployment.json
+static/adversarial-results.json
+.svelte-kit/
+build/
+.vercel/
 issues.md
 research.txt
 pitch_notes.md
+details.md
+fullfile.md

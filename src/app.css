@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e6f0ed;
+  background: #07100f;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 82% 2%, rgba(23, 204, 174, 0.12), transparent 28rem),
+    linear-gradient(rgba(27, 54, 49, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 54, 49, 0.12) 1px, transparent 1px),
+    #07100f;
+  background-size: auto, 32px 32px, 32px 32px, auto;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid #5ce4c7;
+  outline-offset: 3px;
+}

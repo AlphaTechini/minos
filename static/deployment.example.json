@@ -1,0 +1,14 @@
+{
+  "network": "cc3-testnet",
+  "sourceNetwork": "ethereum-sepolia",
+  "sourceEvmChainId": "11155111",
+  "creditcoinEvmChainId": "102031",
+  "publicSourceRpcUrl": "https://ethereum-sepolia-rpc.publicnode.com",
+  "publicCreditcoinRpcUrl": "https://rpc.cc3-testnet.creditcoin.network",
+  "sourcePositionContract": "0x0000000000000000000000000000000000000000",
+  "loanPolicyRegistry": "0x0000000000000000000000000000000000000000",
+  "fullFile": "0x0000000000000000000000000000000000000000",
+  "loanVault": "0x0000000000000000000000000000000000000000",
+  "proofGuard": "0x0000000000000000000000000000000000000000",
+  "policyId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+}

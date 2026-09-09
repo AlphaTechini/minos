@@ -1,11 +1,15 @@
 # Contracts
 
-This directory holds the on-chain part of the Sepolia to Creditcoin proof flow. The source contract is intentionally project-owned and non-upgradeable for the hackathon demo. The Creditcoin contract owns the protected credit authorization and has no unguarded action path.
+This directory contains the separated on-chain boundaries for the Sepolia to Creditcoin authorization flow. Proof verification, history reconstruction, policy governance, and value release are separate so the destination application cannot bypass a failed guard decision.
 
-To find Sepolia position events, visit [SourceLoanPositions.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/SourceLoanPositions.sol).
+To find the project-owned Sepolia loan events, visit [SourceLoanPositions.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/SourceLoanPositions.sol).
 
-To find ProofGuard validation, FullFile state transitions, coverage status, replay protection, and credit authorization, visit [ProofGuardFullFile.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/ProofGuardFullFile.sol).
+To find Attestcoin verification, exact receipt-log policy checks, event nullifiers, eligibility evaluation, and decision receipts, visit [ProofGuard.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/ProofGuard.sol).
+
+To find immutable event records, state versions, coverage, freshness, and loan eligibility, visit [FullFile.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/FullFile.sol).
+
+To find the application-pinned source and policy registry, visit [LoanPolicyRegistry.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/LoanPolicyRegistry.sol).
+
+To find the guarded tCTC economic action, visit [LoanVault.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/LoanVault.sol).
 
 The Attestcoin Block Prover connection can be found in [VerifierInterface.sol](file:///C:/Hackathons/Proof%20Firewall/contracts/src/VerifierInterface.sol).
-
-The tradeoff is deliberate: the guard accepts a single fixed source/event policy rather than attempting a general policy compiler or source registry during the hackathon.

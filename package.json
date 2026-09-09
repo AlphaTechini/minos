@@ -3,14 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.13.0",
+  "packageManager": "pnpm@11.25.0",
   "engines": {
     "node": ">=24.0.0"
   },
   "scripts": {
     "build:contracts": "node scripts/build.mjs",
+    "compile:policy": "node --env-file=.env scripts/compile-policy.mjs",
     "deploy:testnet": "node --env-file=.env scripts/deploy.mjs",
     "source-flow": "node --env-file=.env scripts/source-flow.mjs",
+    "app-flow": "node --env-file=.env scripts/app-flow.mjs",
+    "adversarial-flow": "node --env-file=.env scripts/adversarial-flow.mjs",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
     "worker": "node --env-file=.env worker/src/worker.js",
     "worker:once": "node --env-file=.env worker/src/worker.js --once"
   },
@@ -19,5 +25,13 @@
     "@gluwa/usc-sdk": "0.18.0",
     "@openzeppelin/contracts": "5.4.0",
     "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-vercel": "6.3.4",
+    "@sveltejs/kit": "2.70.3",
+    "@tailwindcss/vite": "4.3.3",
+    "svelte": "5.57.0",
+    "tailwindcss": "4.3.3",
+    "vite": "8.2.2"
   }
 }
