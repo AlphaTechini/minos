@@ -77,17 +77,17 @@
 </script>
 
 <svelte:head>
-  <title>ProofGuard Security Console</title>
-  <meta name="description" content="Attestcoin policy enforcement and ordered FullFile evidence." />
+  <title>Minos Security Console</title>
+  <meta name="description" content="Attestcoin-backed policy enforcement and current authorization evidence." />
 </svelte:head>
 
 <main>
   <header class="topbar">
     <div class="brand-lockup">
-      <div class="mark">PG</div>
+      <div class="mark">M</div>
       <div>
         <p class="eyebrow">ATT-SEC / CC3</p>
-        <h1>ProofGuard <span>+ FullFile</span></h1>
+        <h1>Minos <span>security console</span></h1>
       </div>
     </div>
     <div class="network-strip">
@@ -107,7 +107,7 @@
     <div>
       <p class="eyebrow accent">CROSS-CHAIN AUTHORIZATION FIREWALL</p>
       <h2>Real proof. Exact policy.<br /><span>Current context.</span></h2>
-      <p class="lede">ProofGuard validates the event. FullFile proves whether that event still qualifies for the action being requested.</p>
+      <p class="lede">Minos validates the event, its policy, and its current authorization context before any action can proceed.</p>
     </div>
     <div class="policy-fingerprint">
       <p>ACTIVE POLICY</p>
@@ -195,8 +195,8 @@
           <dl class="manifest">
             <div><dt>Policy</dt><dd>{deployment ? short(deployment.policyId, 8) : "-"}</dd></div>
             <div><dt>Source</dt><dd>{deployment ? short(deployment.sourcePositionContract) : "-"}</dd></div>
-            <div><dt>Guard</dt><dd>{deployment ? short(deployment.proofGuard) : "-"}</dd></div>
-            <div><dt>FullFile</dt><dd>{deployment ? short(deployment.fullFile) : "-"}</dd></div>
+            <div><dt>Minos gate</dt><dd>{deployment ? short(deployment.proofGuard) : "-"}</dd></div>
+            <div><dt>Minos state record</dt><dd>{deployment ? short(deployment.fullFile) : "-"}</dd></div>
             <div><dt>Vault</dt><dd>{deployment ? short(deployment.loanVault) : "-"}</dd></div>
             <div><dt>Compiler</dt><dd>{dashboard ? short(dashboard.policy.compilerVersion) : "-"}</dd></div>
           </dl>
