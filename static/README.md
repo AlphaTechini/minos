@@ -1,6 +1,6 @@
 # Public Runtime Configuration
 
-This directory holds public browser assets. The generated `deployment.json` contains only public network endpoints, contract addresses, and policy identity.
+This directory holds public browser assets. The local generated `deployment.json` remains useful for offline development; the Vercel dashboard uses `/api/deployment` instead.
 
 To find the expected deployment shape, visit [deployment.example.json](file:///C:/Hackathons/Proof%20Firewall/static/deployment.example.json).
 

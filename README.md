@@ -69,7 +69,37 @@ The worker stores its deployment-bound cursor and public source transaction meta
 pnpm dev
 ```
 
-The browser console loads only `static/deployment.json`, public RPC endpoints, and public contract state. Source and Creditcoin user actions are signed by the connected browser wallet. Worker, deployer, and owner private keys never enter the frontend bundle.
+The browser console loads only public configuration from `/api/deployment`, public RPC endpoints, and public contract state. Source and Creditcoin user actions are signed by the connected browser wallet. Worker, deployer, and owner private keys never enter the frontend bundle.
+
+### Vercel Configuration
+
+The deployed dashboard loads its public contract configuration from `/api/deployment`. Configure these Vercel environment variables for the Production environment:
+
+```text
+SOURCE_EVM_CHAIN_ID
+CREDITCOIN_EVM_CHAIN_ID
+PUBLIC_SOURCE_CHAIN_RPC_URL
+PUBLIC_CREDITCOIN_RPC_URL
+SOURCE_POSITION_CONTRACT_ADDRESS
+LOAN_POLICY_REGISTRY_ADDRESS
+FULLFILE_CONTRACT_ADDRESS
+LOAN_VAULT_CONTRACT_ADDRESS
+PROOF_GUARD_CONTRACT_ADDRESS
+POLICY_ID
+```
+
+Do not add private keys, Proof Builder credentials, worker settings, or deployment-only settings to Vercel. In particular, remove any of these if they were copied from the local `.env`:
+
+```text
+CREDITCOIN_WORKER_PRIVATE_KEY
+SOURCE_DEPLOYER_PRIVATE_KEY
+SOURCE_BORROWER_PRIVATE_KEY
+SOURCE_OWNER_PRIVATE_KEY
+CREDITCOIN_DEPLOYER_PRIVATE_KEY
+CREDITCOIN_BORROWER_PRIVATE_KEY
+```
+
+The local worker continues to use its own `.env` and private key. Vercel is only the dashboard host.
 
 ## Demonstration
 

@@ -66,8 +66,11 @@ export function scenarioIds() {
 }
 
 export async function loadDeployment() {
-  const response = await fetch("/deployment.json", { cache: "no-store" });
-  if (!response.ok) throw new Error("Missing static/deployment.json. Run the deployment script first.");
+  const response = await fetch("/api/deployment", { cache: "no-store" });
+  if (!response.ok) {
+    const failure = await response.json().catch(() => ({}));
+    throw new Error(failure.error ?? "Minos deployment configuration is unavailable.");
+  }
   return response.json();
 }
 
