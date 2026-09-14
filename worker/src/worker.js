@@ -290,6 +290,7 @@ async function run(config, once) {
     config.sourceChainKey, config.proofBuilderUrl, 15_000
   );
   const state = await loadState(config.stateFile, config);
+  let lastWaitNotice = "";
 
   do {
     try {
@@ -320,6 +321,13 @@ async function run(config, once) {
         await saveState(config.stateFile, state);
       }
       if (state.blockedAt !== null) break;
+      if (state.nextBlock > safeLatestBlock) {
+        const notice = `Attested height ${latestAttestedBlock} is behind the source head ${latestBlock}; waiting to scan from block ${state.nextBlock}.`;
+        if (notice !== lastWaitNotice) {
+          console.log(notice);
+          lastWaitNotice = notice;
+        }
+      }
     } catch (error) {
       console.error("Worker cycle failed. Coverage must be treated as stale until the range is retried.", error);
       for (const positionId of state.positionIds) {
