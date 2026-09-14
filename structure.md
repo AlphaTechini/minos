@@ -10,7 +10,7 @@
 |-- scripts/                 Build, deployment, application, and attack runners
 |-- src/
 |   |-- lib/                 Public blockchain and browser-wallet client
-|   `-- routes/              SvelteKit security console
+|   `-- routes/              SvelteKit security console and incident library
 |-- static/                  Public runtime configuration and attack results
 |-- worker/
 |   `-- src/                 Attestcoin ingestion and source monitor
@@ -38,6 +38,8 @@ To find dashboard architecture, visit [src/README.md](file:///C:/Hackathons/Proo
 To find the public contract client, visit [src/lib/README.md](file:///C:/Hackathons/Proof%20Firewall/src/lib/README.md).
 
 To find the security console route, visit [src/routes/README.md](file:///C:/Hackathons/Proof%20Firewall/src/routes/README.md).
+
+To find the incident-library route, visit [src/routes/problems/README.md](file:///C:/Hackathons/Proof%20Firewall/src/routes/problems/README.md).
 
 To find browser-safe runtime files, visit [static/README.md](file:///C:/Hackathons/Proof%20Firewall/static/README.md).
 

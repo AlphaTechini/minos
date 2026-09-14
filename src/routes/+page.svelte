@@ -91,6 +91,7 @@
       </div>
     </div>
     <div class="network-strip">
+      <a class="problems-link" href="/problems">Incident library</a>
       <span><i class="online"></i> Sepolia source</span>
       <span><i class="online"></i> CC3 enforcement</span>
       <button
@@ -272,6 +273,8 @@
   .accent { color: #5ce4c7; }
   .network-strip { gap: 22px; color: #9fb3ae; font-size: 12px; }
   .network-strip span { display: flex; align-items: center; gap: 7px; }
+  .problems-link { color: #9fb3ae; font: 700 10px Consolas, monospace; letter-spacing: 0.05em; text-decoration: none; }
+  .problems-link:hover { color: #5ce4c7; }
   .online { width: 7px; height: 7px; border-radius: 50%; background: #61dfa2; box-shadow: 0 0 12px #61dfa2; }
   button { border: 1px solid #38645b; border-radius: 3px; padding: 11px 14px; color: #dff5ef; background: #11221f; cursor: pointer; transition: 150ms ease; }
   button:hover:not(:disabled) { border-color: #5ce4c7; background: #17332d; transform: translateY(-1px); }
@@ -359,7 +362,7 @@
     main { padding: 0 16px 40px; }
     .topbar { align-items: flex-start; gap: 18px; padding: 18px 0; }
     .network-strip { align-items: flex-end; flex-direction: column; gap: 8px; }
-    .network-strip span { display: none; }
+    .network-strip span, .problems-link { display: none; }
     .hero { padding: 42px 0 30px; gap: 28px; }
     h2 { font-size: 46px; }
     .metrics, .evidence-grid { grid-template-columns: 1fr 1fr; }
