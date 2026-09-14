@@ -26,9 +26,9 @@
   </header>
 
   <section class="hero">
-    <p class="eyebrow accent">HISTORICAL FAILURE MODES</p>
-    <h2>Proof is necessary.<br /><span>Authorization needs more.</span></h2>
-    <p class="lede">These reports show why a destination action cannot safely rely on an isolated message, event, or claim. Minos applies source identity, receipt evidence, current context, and one-time authorization to its own protected actions.</p>
+    <p class="eyebrow accent">THE PROOFS WERE REAL. THE LOSSES WERE TOO.</p>
+    <h2>Verified does not mean<br /><span>safe to act on.</span></h2>
+    <p class="lede">Each incident below began with something genuine: a valid signature, an authentic oracle answer, a proven event, or a legitimate cross-chain message. Millions were lost because verification did not ask whether that evidence was fresh, from the right source, on the right chain, economically complete, and safe to use now.</p>
   </section>
 
   <section class="layers" aria-labelledby="layers-title">
@@ -37,7 +37,7 @@
         <p class="eyebrow">MINOS CONTROL SURFACE</p>
         <h3 id="layers-title">Four checks before value moves</h3>
       </div>
-      <p>Each layer answers a different question. No single historical incident is presented as proof that Minos would have fixed the affected protocol.</p>
+      <p>Cryptography establishes that evidence is authentic. Minos separately decides whether that evidence can authorize this action in its current context.</p>
     </div>
     <div class="layer-grid">
       {#each protectionLayers as layer}
@@ -52,10 +52,10 @@
   <section class="incidents" aria-labelledby="incidents-title">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">PRIMARY-SOURCE RECORDS</p>
-        <h3 id="incidents-title">What failed, and what a Minos gate can actually control</h3>
+        <p class="eyebrow">SOURCE-BACKED RECORDS</p>
+        <h3 id="incidents-title">Five times verification passed and value still moved unsafely</h3>
       </div>
-      <p>Expand a record for the reported facts, the relevant destination-gate control, and an explicit protection boundary.</p>
+      <p>Expand a record to see exactly what was valid, what the application failed to ask, and where Minos protection ends.</p>
     </div>
 
     <div class="incident-list">
@@ -80,7 +80,12 @@
           <div class="incident-details" id={`${incident.id}-details`} hidden={openId !== incident.id}>
             <div class="incident-summary">
               <p>{incident.summary}</p>
-              <a href={incident.sourceUrl} target="_blank" rel="noreferrer">Read {incident.sourceLabel} <span>-&gt;</span></a>
+              <div class="source-links">
+                <a href={incident.sourceUrl} target="_blank" rel="noreferrer">Read {incident.sourceLabel} <span>-&gt;</span></a>
+                {#if incident.secondarySourceUrl}
+                  <a href={incident.secondarySourceUrl} target="_blank" rel="noreferrer">View {incident.secondarySourceLabel} <span>-&gt;</span></a>
+                {/if}
+              </div>
             </div>
             <div class="detail-grid">
               <section class="control">
@@ -171,6 +176,7 @@
   .incident-details { display: grid; grid-template-columns: 0.74fr 1.26fr; gap: 24px; padding: 0 20px 22px 200px; }
   .incident-summary { padding: 20px; border-left: 3px solid #5ce4c7; background: #0a1d19; }
   .incident-summary p { margin: 0 0 19px; color: #c5d6d1; font-size: 14px; line-height: 1.55; }
+  .source-links { display: flex; flex-wrap: wrap; gap: 12px 20px; }
   .detail-grid { display: grid; gap: 10px; }
   .detail-grid section { padding: 17px 18px; }
   .detail-grid section > p:last-child { margin: 9px 0 0; font-size: 12px; line-height: 1.55; }
